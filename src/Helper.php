@@ -23,6 +23,10 @@ class Helper
         } elseif (is_object($object)) {
             return $object->getKey();
         } elseif (is_array($object)) {
+            if (in_array('team', $object)) {
+                return $object['team']->id;
+            }
+            
             return $object['id'];
         } elseif (is_numeric($object)) {
             return $object;
